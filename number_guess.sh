@@ -1,5 +1,5 @@
 #!/bin/bash
-PSQL="psql -X --username=freecodecamp --dbname=postgres --no-align --tuples-only -c"
+PSQL="psql -X --username=freecodecamp --dbname=postgres -t --no-align -c"
 echo "Enter your username:"
 read "n"
 a1="$($PSQL "select count(*),min(gs_ct) from games where name='$n' group by name")"
@@ -12,3 +12,9 @@ else
     echo "Welcome back, $n! You have played $c games, and your best game took $m guesses."
   done
 fi
+r=$(($RANDOM%1000))
+MAIN_MENU(){
+  
+}
+
+MAIN_MENU 1
