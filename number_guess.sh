@@ -14,7 +14,20 @@ else
 fi
 r=$(($RANDOM%1000))
 MAIN_MENU(){
-  
+  echo "Guess the secret number between 1 and 1000:"
+  read g
+  if [[ $g -lt $r ]]
+  then
+    echo "It's higher than that, guess again:"
+    MAIN_MENU $(($1+1)) 
+  elif [[ $g -gt $r ]]
+  then
+    echo "It's lower than that, guess again:"
+    MAIN_MENU $(($1+1))
+  else
+    echo "You guessed it in $1 tries. The secret number was $r. Nice job!"
+  fi
+
 }
 
 MAIN_MENU 1
